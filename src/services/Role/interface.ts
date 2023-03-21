@@ -17,4 +17,16 @@ export interface IRoleService {
    * @memberof IUserService
    */
   findAll(): Promise<any[]>;
+
+  /**
+   * @returns {Promise<any[]>}
+   * @memberof IUserService
+   */
+  delete_role(idToDelete: number): Promise<void>;
+
+  /**
+   * @returns {Promise<any[]>}
+   * @memberof IUserService
+   */
+  update_role(idToUpdate: number, userTo: RoleTo): Promise<void>;
 }

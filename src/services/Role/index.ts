@@ -16,3 +16,23 @@ export async function create(role: RoleTo): Promise<RoleTo> {
 export async function findAll(): Promise<any[]> {
     return await RoleService.findAll();
 }
+
+/**
+ * @export
+ * @returns {Promise < any[] >}
+ */
+export async function delete_role(idToDelete: number): Promise<void> {
+    return await RoleService.delete_role(idToDelete);
+}
+
+/**
+ * @export
+ * @returns {Promise < any[] >}
+ */
+export async function update_role(
+    idToUpdate: number,
+    userTo: RoleTo
+  ): Promise<void> {
+    return await RoleService.update_role(idToUpdate, userTo);
+  }
+  

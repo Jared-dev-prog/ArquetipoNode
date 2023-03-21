@@ -48,5 +48,28 @@ describe("RoleFacade Test", () => {
     });
   });
 
+  describe("Delete", () => {
+    it("should return id deleted", async () => {
+      let idToDelete: number =  5;
+      try {
+        await RoleFacade.delete_role(idToDelete);
+      } catch (error) {
+        expect(error).equal(new ParametersError("No se pudo eliminar"));
+      }
+    });
+  });
 
+  describe("Update", () => {
+    it("should return id updated", async () => {
+      let idToUpdate: number = 2;
+      let roleTo: RoleTo = {
+        name: "Admin2.0",
+      };
+      try {
+        await RoleFacade.update_role(idToUpdate, roleTo);
+      } catch (error) {
+        expect(error).equal(new ParametersError("No se pudo actualizar"));
+      }
+    });
+  });
 });

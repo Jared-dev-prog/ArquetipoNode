@@ -71,7 +71,6 @@ describe("UserFacade Test", () => {
       let idToDelete: number = 999;
       try {
         await UserFacade.delete_user(idToDelete);
-        //Expect como el de update
       } catch (error) {
         expect(error).equal(new ParametersError("No se pudo eliminar"));
       }
@@ -86,7 +85,6 @@ describe("UserFacade Test", () => {
       };
       try {
         await UserFacade.update_user(idToUpdate, userTo);
-        //expect(result).instanceOf(Promise<void>);
       } catch (error) {
         expect(error).equal(new ParametersError("No se pudo actualizar"));
       }

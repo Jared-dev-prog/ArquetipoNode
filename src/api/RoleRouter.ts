@@ -70,6 +70,79 @@ router.get("", RoleFacade.findAll);
  */
 router.post('', RoleFacade.create);
 
+/**
+ * DELETE method route
+ * @example http://localhost:PORT/roles
+ * @swagger
+ * /roles/{id}/id:
+ *  delete:
+ *    description: delete Roles
+ *    tags: ["Roles"]
+ *    parameters : [
+ *      {
+ *         name: 'id',
+ *         in: 'path',
+ *         schema: {
+ *           type: 'number',
+ *           example: 1
+ *         },
+ *         required: true
+ *      }
+ *    ]
+ *    responses:
+ *      200:
+ *        description: All Roles
+ *      400:
+ *        description: Error bad parameters
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/ErrorTo'
+ */
+router.delete("/:id/id", RoleFacade.delete_role);
+
+/**
+ * PATCH method route
+ * @example http://localhost:PORT/roles
+ * @swagger
+ * /roles/{id}/id:
+ *  patch:
+ *    description: update Roles
+ *    tags: ["Roles"]
+ *    parameters : [
+ *      {
+ *         name: 'id',
+ *         in: 'path',
+ *         schema: {
+ *           type: 'number',
+ *           example: 1
+ *         },
+ *         required: true
+ *      }
+ *    ]
+ *    requestBody:
+ *      description: object role
+ *      required: true
+ *      content:
+ *        application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/RoleTo'
+ *    responses:
+ *      200:
+ *        description: All Users
+ *        content:
+ *          appication/json:
+ *            schema:
+ *              $ref: '#/components/schemas/RoleTo'
+ *      400:
+ *        description: Error bad parameters
+ *        content:
+ *          application/json:
+ *            schema:
+ *              $ref: '#/components/schemas/ErrorTo'
+ */
+router.patch("/:id/id", RoleFacade.update_role);
+
 
 /**
  * @export {express.Router}

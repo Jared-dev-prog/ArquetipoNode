@@ -41,3 +41,56 @@ export async function create(req: Request, res: Response, next: NextFunction): P
         next(error);
     }
 }
+
+/**
+ * @export
+ * @param {Request} req
+ * @param {Response} res
+ * @param {NextFunction} next
+ * @returns {Promise < void >}
+ */
+export async function delete_role(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const {
+        params: { id },
+      } = req;
+  
+      let result = await RoleFacade.delete_role(+id);
+      console.log(result);
+      res.status(HttpStatusCode.OK).json("Deleted");
+    } catch (error) {
+      console.log("Error en facade: ", error);
+      next(error);
+    }
+  }
+
+  /**
+ * @export
+ * @param {Request} req
+ * @param {Response} res
+ * @param {NextFunction} next
+ * @returns {Promise < void >}
+ */
+export async function update_role(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const {
+        params: { id },
+      } = req;
+      let roleTo: RoleTo = { ...req.body };
+  
+      let result = await RoleFacade.update_role(+id, roleTo);
+      console.log(result);
+      res.status(HttpStatusCode.OK).json("Updated");
+    } catch (error) {
+      console.log("Error en facade update: ", error);
+      next(error);
+    }
+  }
