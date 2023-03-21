@@ -11,4 +11,10 @@ export interface IRoleFacade {
      * @memberof IRoleFacade
      */
     create(role: RoleTo): Promise<RoleTo>;
+
+    /**
+     * @returns {Promise<any[]>}
+     * @memberof IUserFacade
+     */
+    findAll(): Promise<any[]>;
 }

@@ -11,4 +11,10 @@ export interface IRoleService {
      * @memberof IRoleService
      */
     create(role: RoleTo): Promise<RoleTo>;
+
+    /**
+   * @returns {Promise<any[]>}
+   * @memberof IUserService
+   */
+  findAll(): Promise<any[]>;
 }

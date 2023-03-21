@@ -11,6 +11,26 @@ import { RoleTo } from '../../to/RoleTo';
  * @param {NextFunction} next
  * @returns {Promise < void >}
  */
+export async function findAll(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<void> {
+    try {
+      const Role: any[] = await RoleFacade.findAll();
+      res.status(HttpStatusCode.OK).json(Role);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+/**
+ * @export
+ * @param {Request} req
+ * @param {Response} res
+ * @param {NextFunction} next
+ * @returns {Promise < void >}
+ */
 export async function create(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
         let role: RoleTo = { ...req.body };

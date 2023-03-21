@@ -19,7 +19,16 @@ const RoleFacade: IRoleFacade = {
         Utils.required({name: role.name});
         let RoleResponse: RoleTo = await RoleService.create(role);
         return RoleResponse;
-    }
+    },
+
+     /**
+     * @returns {Promise < any[] >}
+     * @memberof RoleFacade
+     */
+     async findAll(): Promise<any[]> {
+        let rolesResponse = await RoleService.findAll();
+        return rolesResponse;
+    },
 }
 
 export default RoleFacade;

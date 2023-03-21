@@ -14,6 +14,36 @@
     "C:\\Users\\user\\Desktop\\Repaso_node\\user-service\\src\\**\\**\\*.ts"
   ],
   "paths": {
+    "/roles/": {
+      "get": {
+        "description": "Get all Roles",
+        "tags": [
+          "Roles"
+        ],
+        "responses": {
+          "200": {
+            "description": "All Roles",
+            "content": {
+              "appication/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleTo"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error bad parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleTo"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/roles": {
       "post": {
         "description": "create Roles",
@@ -213,6 +243,21 @@
   },
   "components": {
     "schemas": {
+      "RoleTo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Admin",
+            "description": "name of Role"
+          },
+          "id": {
+            "type": "number",
+            "description": "id of Role",
+            "example": 1
+          }
+        }
+      },
       "UserTO": {
         "type": "object",
         "properties": {
@@ -249,21 +294,6 @@
             "type": "string",
             "description": "Información sobre solución del error",
             "example": "http://info.com"
-          }
-        }
-      },
-      "RoleTo": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "number",
-            "description": "id of Role",
-            "example": 1
-          },
-          "name": {
-            "type": "string",
-            "description": "name of Role",
-            "example": "Admin"
           }
         }
       },
